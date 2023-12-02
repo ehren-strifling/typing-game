@@ -28,7 +28,9 @@ class TypingGame {
 		'rebel', 'amber', 'jacket', 'article', 'paradox', 'social', 'resort', 'escape'
 	];
 
-	static TIME = 9; //99 seconds
+	static TIME = 99; //99 seconds
+	/**@type {Audio} */ //End a few seconds earlier then I would like but it's fine. I would've liked to have it last around 5 more seconds.
+	static MUSIC = new Audio("./src/mp3/stylish-rock-beat-trailer-116346.mp3");
 
 	/**@type {HTMLElement} */
 	#masterElement;
@@ -139,6 +141,8 @@ class TypingGame {
 		this.#enterElement.innerHTML = "submit";
 		
 		this.#main();
+
+		this.constructor.MUSIC.play();
 	}
 
 	async #main() { //using a loop like this ensures that there is no time sillyness with browser delays.
@@ -156,7 +160,7 @@ class TypingGame {
 
 	#tickDown() {
 		this.#time--;
-		this.#timeElement.innerHTML = `<b>Time:</b> ${this.#time}`;
+		this.#timeElement.innerHTML = `<b>Time remaining:</b> ${this.#time}`;
 		return this.#time;
 	}
 	/** @param {string} word */
@@ -227,7 +231,7 @@ class TypingGame {
 
 	#incrementHits() {
 		this.#completedWords++;
-		this.#hitsElement.innerHTML=`<b>Hits:</b> ${this.#completedWords}`
+		this.#hitsElement.innerHTML=`<b>Words:</b> ${this.#completedWords}`
 	}
 	#incrementMisses() {
 		this.#incorrectWords++;
@@ -268,6 +272,9 @@ class TypingGame {
 		this.#wordlist = [];
 		this.#inputElement.disabled = true;
 		this.#enterElement.disabled = true;
+
+		this.constructor.MUSIC.pause();
+		this.constructor.MUSIC.currentTime = 0;
 	}
 	
 	#init() {
