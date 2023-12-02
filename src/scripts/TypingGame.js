@@ -130,7 +130,7 @@ class TypingGame {
 		this.#wordlist = shuffle(arrayCopy(this.constructor.WORDS));
 		this.#updateWord();
 
-		this.#messageElement.innerHTML = "HURRY, ENTER THE WORD SHOWN!"
+		this.#messageElement.innerHTML = "Enter the words shown to win the race!"
 
 		this.#playing = 1;
 
@@ -160,7 +160,7 @@ class TypingGame {
 
 	#tickDown() {
 		this.#time--;
-		this.#timeElement.innerHTML = `<b>Time remaining:</b> ${this.#time}`;
+		this.#timeElement.innerHTML = `<b>Time remaining:</b> ${this.#time}s`;
 		return this.#time;
 	}
 	/** @param {string} word */
@@ -249,7 +249,7 @@ class TypingGame {
 		this.#incorrectWords = 0;
 		this.#time = 0;
 		
-		this.#timeElement.innerHTML = "";
+		this.#timeElement.innerHTML = "<b>Time remaining:</b> 0s";
 		this.#timeElement.className = "time";
 
 		this.#messageElement.className = "message";
@@ -265,6 +265,8 @@ class TypingGame {
 		this.#enterElement.innerHTML = "start";
 
 		this.#playing = 0;
+
+		this.#inputElement.focus();
 	}
 
 	#endGame() { //where is the infinityWar method?
