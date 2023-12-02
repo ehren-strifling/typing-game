@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.win {
+	color: #00ff00;
+}
+
+.lose {
+	color: #ff0000;
+}
+
+.invisible {
+	visibility: hidden;
+}
