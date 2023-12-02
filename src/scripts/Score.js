@@ -2,12 +2,27 @@
 
 class Score {
 	#date;
-	#hits;
-	#percentage;
-	constructor(hits, misses) {
+	#words;
+	#accuracy;
+	#time;
+	constructor(hits, misses, time) {
 		this.#date = new Date();
-		this.#hits = hits;
-		this.#percentage = hits / (hits+misses);
+		this.#words = hits;
+		this.#accuracy = hits / (hits+misses) || 0;
+		this.#time = time;
+	}
+
+	get date() {
+		return this.#date;
+	}
+	get words() {
+		return this.#words;
+	}
+	get accuracy() {
+		return this.#accuracy;
+	}
+	get time() {
+		return this.#time;
 	}
 }
 

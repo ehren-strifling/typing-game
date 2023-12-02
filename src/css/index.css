@@ -28,8 +28,16 @@ a {
 
 body {
 	background-color: var(--app-background-colour);
+	background-image: url(../img/todd-jiang-uFbmTCtLkqg-unsplash.jpg); /* Image is definitely too large but I have no time*/
+	background-size: cover;
+	background-position: center;
+  background-repeat: no-repeat;
+	width: 100vh;
+	height: 100vh;
+
+	overflow: hidden;
 }
 
 main { /*TEMP*/
-	margin: 100px;
+	padding: 100px;
 }
